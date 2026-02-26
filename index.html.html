@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Just One Question 💌</title>
+  <style>
+    body{
+      font-family: Arial;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    img{
+      width: 300px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    button{
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    #message{
+      margin-top: 20px;
+      font-size: 20px;
+      min-height: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="#" onclick="showContent()">Click here 💌</a>
+
+  <div id="content" style="display:none;">
+    <br>
+    <img src="minion.jpg" alt="Minion">
+    <h2>I love you ❤️</h2>
+    <p>Do you love me too?</p>
+
+    <button id="yesBtn" onclick="yes()">YES</button>
+    <button id="noBtn" onclick="no()">NO</button>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    let noCount = 0;
+
+    function showContent(){
+      document.getElementById("content").style.display = "block";
+    }
+
+    function yes(){
+      document.getElementById("message").innerHTML = "Yaaay 💖🥰";
+    }
+
+    function no(){
+      noCount++;
+      const messages = [
+        "No?? 😭 Try again.",
+        "I think you meant YES 😏",
+        "Come onnn press YES ❤️",
+        "YES is getting bigger for a reason 👀",
+        "You stupid or what ??,
+        "Bro come on"
+        "Okay stop playing 😂 press YES"
+      ];
+
+      document.getElementById("message").innerHTML =
+        messages[Math.min(noCount-1, messages.length-1)];
+
+      let yesBtn = document.getElementById("yesBtn");
+      let noBtn = document.getElementById("noBtn");
+
+      yesBtn.style.fontSize = (18 + noCount * 5) + "px";
+      noBtn.style.fontSize = Math.max(10, 18 - noCount * 3) + "px";
+    }
+  </script>
+
+</body>
+</html>
